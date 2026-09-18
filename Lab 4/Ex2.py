@@ -11,3 +11,4 @@ print("Combined response values and IDs: ", responseValues)
 
 responseValuesNew = [(1012, 5), (1035, 7), (1021, 3), (1053, 8)]
 print("New response values and IDs: ", responseValuesNew)
+

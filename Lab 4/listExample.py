@@ -5,7 +5,7 @@ shoppingList.append("chips")
 shoppingList.append("ramen")
 print("shopping list: ", shoppingList)
 
-shoppingList.remove(1)
+shoppingList.remove("vodka")
 print("new shopping list: ", shoppingList)
 
 shoppingList.pop(0)
