@@ -1,0 +1,77 @@
+Loops Lab 
+
+
+1. Write Python code that uses a Python for-statement to create a list of elements that are the odd numbers between 1 and 50.
+
+Use range() and an if-statement in a “traditional” for loop
+
+Use range() and the fact an odd number is 2*num + 1
+
+Use range() with a step and no if-statement or use 2*num + 1
+
+Use List comprehension 
+
+Discuss the advantages and disadvantages of the different approaches above.
+
+The for-statement always “iterates” through what kinds of objects?
+
+
+2. Write Python code that uses the Python while statement to create a list of elements that are even numbers from 1 to 50.
+
+Code here:
+
+
+Rewrite the above using a condition checking the last element on the list is less than or equal to 50 (if you did not already use this in (a) above). What’s a problem with using a while loop for this and how can you address it?
+
+When would you want to use a while-loop over a for-loop?
+
+
+3. Write Python code that executes a for loop that examines every element of the tuple (“hello,” 10; “goodbye,” 3; “goodnight,” 5). Within the loop, use an if statement to count how many of the elements are strings. After the loop completes, print out a message stating how many strings are in the tuple.
+
+Code here:
+
+Discuss how this loop is constructed and how you know it gives the expected result.
+
+
+4. Write a Python program that will iterate through a list named “recent_purchases” of your last 5 expenses (e.g. recent_purchases = [36.13, 23.87, 183.35, 22.93, 11.62]) and set a budget for yourself (e.g. $50). Print the message “This purchase is over budget!” if the expense is greater than your budget and “This purchase is within budget” otherwise.
+
+Code here:
+
+
+Why is it better to use the variable recent_purchases rather than directly use the list in the loop?
+
+
+ON YOUR OWN: Create a function for this and write test cases for this and use them to test the function.
+
+
+5. Develop a program that will iterate through two tuples you create of your top 5 favorite celebrities and their corresponding ages (e.g. (“Taylor Swift”, “Lionel Messi”, “The Weeknd”, “Keanu Reeves”, “Angelina Jolie”) and (36, 38, 36, 61, 50)). Then, append the values to two lists and store the lists as values in a dictionary with keys “celebrities” and “ages.”
+
+Code here:
+
+Do the above without loops
+
+
+6. ON YOUR OWN: Write code that will try to append an input from the user to the tuple that you created in Exercise 3 and print out the appended tuple.
+
+Code here:
+
+Why will this code produce an error? Would using indexing fix this error?
+
+Modify your code using try and except statements to handle this error, reporting to the user that an attempt was made to append a value to the tuple. Get the error from the exception and print this with the report.
+
+Instead of reporting an error in the exception, handle it by creating a new tuple by adding the input to the tuple and then assigning it back to the variable holding the tuple. The program should not exit and will continue to the end printing out the appended tuple.
+
+Instead of adding, use the unpacking operator (*) to append the value.
+
+Use .append() instead of what you did in (d) and (e) hint: recast the tuple to a list
+
+
+7. Write code that will iterate through numbers from 1 to 10 and print the number if it is not equal to 5 (using continue) and stop the loop entirely and print a message when it reaches 8 (using break).
+
+Code here:
+
+Explain some circumstances for which you would need to use continue
+
+Explain some circumstances for which you would need to use break
+
+
