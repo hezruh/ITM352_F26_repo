@@ -1,0 +1,26 @@
+{
+  "what is the capital of france?": {
+    "choices": ["Paris", "Toulouse", "Lyon"],
+    "explanation": "Correct! The capital of France is Paris, which is the largest city in the country."
+  },
+  "what is the capital of italy?": {
+    "choices": ["Rome", "Milan", "Naples"],
+    "explanation": "Correct! The capital of Italy is Rome, being the center of the historic Roman Empire."
+  },
+  "what is the capital of spain?": {
+    "choices": ["Madrid", "Barcelona", "Seville"],
+    "explanation": "Correct! Madrid was chosen by King Phillip II in the 16th century."
+  },
+  "what is the capital of japan?": {
+    "choices": ["Tokyo", "Kyoto", "Osaka"],
+    "explanation": "Correct! Tokyo became the capital when the emperor moved from Kyoto."
+  },
+  "what is the capital of canada?": {
+    "choices": ["Ottawa", "Toronto", "Vancouver"],
+    "explanation": "Correct! The capital of Canada is Ottawa since the location is between english and french speaking regions."
+  },
+  "what is the largest planet in our solar system?": {
+    "choices": ["Jupiter", "Saturn", "Neptune"],
+    "explanation": "Correct! Jupiter is the largest planet in our solar system with the most mass."
+  }
+}
