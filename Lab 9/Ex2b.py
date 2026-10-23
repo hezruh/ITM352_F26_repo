@@ -1,4 +1,5 @@
-#
+# read a csv file containing window cleaning employee data and compute salary stats
+# 
 
 import csv
 import os

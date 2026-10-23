@@ -1,0 +1,26 @@
+{
+    "what is the capital of france?": [
+        "Paris",
+        "Toulouse",
+        "Nice",
+        "Avignon"
+    ],
+    "what is the capital of germany?": [
+        "Berlin",
+        "Hamburg",
+        "Munich",
+        "Cologne"
+    ],
+    "which artist painted the last supper?": [
+        "da Vinci",
+        "Michaelangelo",
+        "Raphael",
+        "Donatello"
+    ],
+    "what is the airspeed of an unladen swallow?": [
+        "24",
+        "12",
+        "48",
+        "36"
+    ]
+}
