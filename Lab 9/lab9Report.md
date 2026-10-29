@@ -55,17 +55,17 @@ Code here:
 
 4. ON YOUR OWN: Modify the program in Exercise 3 to calculate the total of all fares, the average of those fares, and the maximum trip distance (based on the Trip Miles field) for records that have fares greater than 10 dollars. 
 Code here:
-
+https://github.com/hezruh/ITM352_F26_repo/blob/455a15fbafaad872efe2ae9ff6b5b64f7fff7f00/Lab%209/Ex4.py
 
 5. Write a program that takes the dictionary of quiz questions you created for Assignment 1 and saves it as a JSON file. 
 Code here:
-
-
+https://github.com/hezruh/ITM352_F26_repo/blob/455a15fbafaad872efe2ae9ff6b5b64f7fff7f00/Lab%209/Ex5.py
 6. Write a program to read the JSON file that you created in question 5 and print it.
 Code here:
+https://github.com/hezruh/ITM352_F26_repo/blob/455a15fbafaad872efe2ae9ff6b5b64f7fff7f00/Lab%209/Ex6.py
 
 What are some advantages and disadvantages of the JSON format?
-
+JSON is very easy to read and write for humans; it is also good for interchangeability between different programming languages. On the other hand, it is not as efficient as binary formats for large datasets.
 
 
 
