@@ -1,0 +1,954 @@
+Terminating session. Thank you for using the Sales Analytics System.
+sciskafu@Hezras-MacBook-Air-3 Assignment 2 % /usr/bin/python3 "/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py"
+Initializing data import from source: https://drive.google.com/uc?id=1Fv_vhoN4sTrUaozFPfzr0NCyHJLIeXEA
+Data import completed successfully in 2.11 seconds.
+Total records processed: 5130
+Available data attributes: ['order_number', 'employee_id', 'employee_name', 'job_title', 'sales_region', 'order_date', 'order_type', 'customer_type','customer_name', 'customer_state', 'product_category', 'product_number', 'produce_name', 'quantity', 'unit_price']
+/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py:31: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df["parsed_order_date"] = pd.to_datetime(df["order_date"], errors="coerce")
+Data validation complete: All required schema attributes are present.
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 1
+
+Enter rows to display:
+- Enter a number 1 to 5130
+- To see all rows, enter 'all'
+- To skip preview, press Enter
+Your choice: all
+
+--- Complete Sales Dataset ---
+      order_number  employee_id    employee_name  ... quantity unit_price parsed_order_date
+0          1102935    900019019  Alexandra Kundt  ...        3       45.0        2019-09-02
+1          1102976    900019019  Alexandra Kundt  ...        1       19.5        2019-02-15
+2          1102988    900019019  Alexandra Kundt  ...        4       26.0        2019-02-16
+3          1103012    900019019  Alexandra Kundt  ...        4      234.0        2019-02-19
+4          1103031    900019019  Alexandra Kundt  ...        3      234.0        2019-02-22
+...            ...          ...              ...  ...      ...        ...               ...
+5125       1107851    900015961     Wynona Smith  ...        6      123.0        2021-11-01
+5126       1107859    900015961     Wynona Smith  ...        4       27.0        2021-12-01
+5127       1107913    900015961     Wynona Smith  ...        2      234.0        2021-01-18
+5128       1107972    900015961     Wynona Smith  ...        2      234.0        2021-01-27
+5129       1107998    900015961     Wynona Smith  ...        3      123.0        2021-01-31
+
+[5130 rows x 16 columns]
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 2
+/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py:64: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(data["order_date"], errors="coerce")
+
+--- Date Range Selection (Available Period: 2019-01-02 to 2021-12-01) ---
+Please specify the date range for this analysis (Format: YYYY-MM-DD, or press Enter for full range).
+Start Date [Default: 2019-01-02]: 
+End Date   [Default: 2021-12-01]: 
+Filter applied: Analyzing 5130 records from 2019-01-02 to 2021-12-01.
+
+--- Executive Summary: Total Sales Revenue by Region and Order Type ---
+order_type         Retail  Wholesale
+sales_region                        
+Central East    102613.51  149137.89
+N Central East  117451.69  152446.42
+N Central West   10006.42    1731.50
+Northeast        84078.95  127423.36
+Northwest        34565.62   33240.12
+S Central East  130742.32  208945.73
+S Central West   54681.80   51051.03
+Southeast        96310.12  127554.60
+Southwest       104743.52  121977.20
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 3
+/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py:64: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(data["order_date"], errors="coerce")
+
+--- Date Range Selection (Available Period: 2019-01-02 to 2021-12-01) ---
+Please specify the date range for this analysis (Format: YYYY-MM-DD, or press Enter for full range).
+Start Date [Default: 2019-01-02]: 
+End Date   [Default: 2021-12-01]: 
+Filter applied: Analyzing 5130 records from 2019-01-02 to 2021-12-01.
+
+--- Analytical Report: Average Sales Revenue by Region, State, and Order Type ---
+customer_state Alabama           Alaska           Arizona           Arkansas           California           Colorado           Connecticut           Delaware           District of Columbia  \
+order_type      Retail Wholesale Retail Wholesale  Retail Wholesale   Retail Wholesale     Retail Wholesale   Retail Wholesale      Retail Wholesale Retail Wholesale               Retail   
+sales_region                                         
+Central East      0.00      0.00    0.0      0.00    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00        0.00      0.00  194.9    1092.0               150.37   
+N Central East    0.00      0.00    0.0      0.00    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00        0.00      0.00    0.0       0.0                 0.00   
+N Central West    0.00      0.00    0.0      0.00    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00        0.00      0.00    0.0       0.0                 0.00   
+Northeast         0.00      0.00    0.0      0.00    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00      157.77   1431.64    0.0       0.0                 0.00   
+Northwest         0.00      0.00  153.0    799.83    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00       64.48      0.00    0.0       0.0                 0.00   
+S Central East    0.00      0.00    0.0      0.00    0.00      0.00   181.65   1251.25       0.00      0.00     0.00      0.00        0.00      0.00    0.0       0.0                 0.00   
+S Central West    0.00      0.00    0.0      0.00  201.56   1228.52     0.00      0.00       0.00      0.00   191.98   1215.94        0.00      0.00    0.0       0.0                 0.00   
+Southeast       143.72    762.73    0.0      0.00    0.00      0.00     0.00      0.00       0.00      0.00     0.00      0.00        0.00      0.00    0.0       0.0                 0.00   
+Southwest         0.00      0.00    0.0      0.00    0.00      0.00     0.00      0.00     169.33   1198.89     0.00      0.00        0.00      0.00    0.0       0.0                 0.00   
+
+customer_state           Florida           Georgia            Hawaii   Idaho Illinois           Indiana              Iowa            KansasKentucky           Louisiana           Maryland  \
+order_type     Wholesale  Retail Wholesale  Retail Wholesale  Retail  Retail   Retail Wholesale  Retail Wholesale  Retail Wholesale  Retail Wholesale  Retail Wholesale    Retail Wholesale   Retail   
+sales_region                                                  
+Central East      891.66    0.00      0.00    0.00      0.00    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00  170.53    1465.4      0.00       0.0   200.06   
+N Central East      0.00    0.00      0.00    0.00      0.00    0.00    0.00   140.94   1382.59  166.45   1040.65  199.91    1561.5  125.07   1168.13    0.00       0.0      0.00       0.0     0.00   
+N Central West      0.00    0.00      0.00    0.00      0.00    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+Northeast           0.00    0.00      0.00    0.00      0.00    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+Northwest           0.00    0.00      0.00    0.00      0.00    0.00  183.02     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+S Central East      0.00    0.00      0.00    0.00      0.00    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0    160.03    1404.0     0.00   
+S Central West      0.00    0.00      0.00    0.00      0.00    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+Southeast           0.00  164.09   1362.92  147.48   1537.47    0.00    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+Southwest           0.00    0.00      0.00    0.00      0.00  114.51    0.00     0.00      0.00    0.00      0.00    0.00       0.0    0.00      0.00    0.00       0.0      0.00       0.0     0.00   
+
+customer_state           Massachusetts           Michigan           Minnesota           Mississippi Missouri           Montana Nebraska            Nevada           New Hampshire New Jersey  \
+order_type     Wholesale        Retail Wholesale   Retail Wholesale    Retail Wholesale      Retail   Retail Wholesale  Retail   Retail Wholesale  Retail Wholesale        Retail     Retail   
+sales_region                                         
+Central East     1495.24          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+N Central East      0.00          0.00       0.0   207.94    1213.5    166.84   1291.77        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+N Central West      0.00          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00  137.88   176.36    577.17    0.00      0.00          0.00       0.00   
+Northeast           0.00        186.01    1683.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00        102.64     191.61   
+Northwest           0.00          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+S Central East      0.00          0.00       0.0     0.00       0.0      0.00      0.00      134.93   162.07   1433.96    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+S Central West      0.00          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+Southeast           0.00          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00    0.00      0.00          0.00       0.00   
+Southwest           0.00          0.00       0.0     0.00       0.0      0.00      0.00        0.00     0.00      0.00    0.00     0.00      0.00  144.56   1321.74          0.00       0.00   
+
+customer_state           New Mexico           New York           North Carolina           North Dakota    Ohio           Oklahoma            Oregon        Pennsylvania           South Carolina  \
+order_type     Wholesale     Retail Wholesale   Retail Wholesale         Retail Wholesale       Retail  Retail Wholesale   Retail Wholesale  Retail Wholesale       Retail Wholesale         Retail   
+sales_region                                                
+Central East         0.0       0.00       0.0     0.00      0.00         159.53    1031.4         0.00    0.00      0.00     0.00      0.00    0.00   0.00         0.00      0.00           0.00   
+N Central East       0.0       0.00       0.0     0.00      0.00           0.00       0.0         0.00  163.11   1183.46     0.00      0.00    0.00   0.00         0.00      0.00           0.00   
+N Central West       0.0       0.00       0.0     0.00      0.00           0.00       0.0       136.98    0.00      0.00     0.00      0.00    0.00   0.00         0.00      0.00           0.00   
+Northeast         1809.0       0.00       0.0   158.15   1254.17           0.00       0.0         0.00    0.00      0.00     0.00      0.00    0.00   0.00       159.94   1576.11           0.00   
+Northwest            0.0       0.00       0.0     0.00      0.00           0.00       0.0         0.00    0.00      0.00     0.00      0.00  252.581172.75         0.00      0.00           0.00   
+S Central East       0.0     165.91     627.0     0.00      0.00           0.00       0.0         0.00    0.00      0.00   150.05    936.16    0.00   0.00         0.00      0.00           0.00   
+S Central West       0.0       0.00       0.0     0.00      0.00           0.00       0.0         0.00    0.00      0.00     0.00      0.00    0.00   0.00         0.00      0.00           0.00   
+Southeast            0.0       0.00       0.0     0.00      0.00           0.00       0.0         0.00    0.00      0.00     0.00      0.00    0.00   0.00         0.00      0.00         234.03   
+Southwest            0.0       0.00       0.0     0.00      0.00           0.00       0.0         0.00    0.00      0.00     0.00      0.00    0.00   0.00         0.00      0.00           0.00   
+
+customer_state South Dakota Tennessee             Texas              Utah             Vermont Virginia           Washington           West Virginia        Wisconsin           Wyoming  
+order_type           Retail    Retail Wholesale  Retail Wholesale  Retail Wholesale Wholesale   Retail Wholesale     Retail Wholesale        Retail Wholesale    Retail Wholesale  Retail  
+sales_region                                     
+Central East           0.00     187.8   1321.14    0.00      0.00    0.00       0.0      0.00    193.0   1456.01       0.00      0.00        166.621771.71      0.00      0.00    0.00  
+N Central East         0.00       0.0      0.00    0.00      0.00    0.00       0.0      0.00      0.0      0.00       0.00      0.00          0.00   0.00    167.19   1412.21    0.00  
+N Central West       126.96       0.0      0.00    0.00      0.00    0.00       0.0      0.00      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00   36.74  
+Northeast              0.00       0.0      0.00    0.00      0.00    0.00       0.0   1603.33      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00    0.00  
+Northwest              0.00       0.0      0.00    0.00      0.00    0.00       0.0      0.00      0.0      0.00     164.78    933.92          0.00   0.00      0.00      0.00    0.00  
+S Central East         0.00       0.0      0.00  174.16   1350.58    0.00       0.0      0.00      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00    0.00  
+S Central West         0.00       0.0      0.00    0.00      0.00  145.42    1379.9      0.00      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00    0.00  
+Southeast              0.00       0.0      0.00    0.00      0.00    0.00       0.0      0.00      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00    0.00  
+Southwest              0.00       0.0      0.00    0.00      0.00    0.00       0.0      0.00      0.0      0.00       0.00      0.00          0.00   0.00      0.00      0.00    0.00  
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 4
+/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py:64: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(data["order_date"], errors="coerce")
+
+--- Date Range Selection (Available Period: 2019-01-02 to 2021-12-01) ---
+Please specify the date range for this analysis (Format: YYYY-MM-DD, or press Enter for full range).
+Start Date [Default: 2019-01-02]: 
+End Date   [Default: 2021-12-01]: 
+Filter applied: Analyzing 5130 records from 2019-01-02 to 2021-12-01.
+
+--- Analytical Report: Total Sales Revenue by State, Customer Segment, and Order Type ---
+                                               sale_price
+customer_state       customer_type order_type            
+Alabama              Business      Retail         1088.00
+                                   Wholesale      8389.99
+                     Individual    Retail        14434.00
+Alaska               Business      Retail          886.00
+                                   Wholesale      2399.50
+                     Individual    Retail         3703.90
+Arizona              Business      Retail         1630.00
+                                   Wholesale     20884.80
+                     Individual    Retail        22556.84
+Arkansas             Business      Wholesale      7507.50
+                     Individual    Retail         5631.18
+California           Business      Retail         1657.91
+                                   Wholesale     99507.70
+                     Individual    Retail        93676.17
+Colorado             Business      Retail         2669.87
+                                   Wholesale     21886.83
+                     Individual    Retail        21135.93
+Connecticut          Business      Wholesale     20042.95
+                     Individual    Retail         8017.66
+Delaware             Business      Retail          141.50
+                                   Wholesale      3276.00
+                     Individual    Retail         4536.00
+District of Columbia Business      Retail           41.32
+                                   Wholesale      8916.61
+                     Individual    Retail        18454.50
+Florida              Business      Retail         2194.48
+                                   Wholesale     89952.73
+                     Individual    Retail        48672.34
+Georgia              Business      Wholesale     29211.88
+                     Individual    Retail        20794.11
+Hawaii               Individual    Retail         1603.17
+Idaho                Individual    Retail         5307.71
+Illinois             Business      Retail          824.00
+                                   Wholesale     27651.81
+                     Individual    Retail        18767.09
+Indiana              Business      Retail          759.00
+                                   Wholesale     10406.50
+                     Individual    Retail        17051.02
+Iowa                 Business      Retail         1192.88
+                                   Wholesale     12492.00
+                     Individual    Retail        10801.62
+Kansas               Business      Wholesale     15185.72
+                     Individual    Retail         7379.41
+Kentucky             Business      Retail          338.96
+                                   Wholesale     21980.97
+                     Individual    Retail        12109.88
+Louisiana            Business      Retail         1319.78
+                                   Wholesale      4212.00
+                     Individual    Retail        14682.76
+Maryland             Business      Wholesale     14952.45
+                     Individual    Retail         8002.31
+Massachusetts        Business      Wholesale     11781.00
+                     Individual    Retail        10044.73
+Michigan             Business      Retail         1043.00
+                                   Wholesale     12135.00
+                     Individual    Retail        14760.71
+Minnesota            Business      Wholesale     27127.22
+                     Individual    Retail        14681.56
+Mississippi          Individual    Retail         2833.45
+Missouri             Business      Retail          535.00
+                                   Wholesale     21509.45
+                     Individual    Retail        12916.71
+Montana              Business      Retail          143.50
+                     Individual    Retail         1097.45
+Nebraska             Business      Wholesale      1731.50
+                     Individual    Retail         5290.88
+Nevada               Business      Retail           69.91
+                                   Wholesale     22469.50
+                     Individual    Retail         7736.36
+New Hampshire        Individual    Retail         1436.97
+New Jersey           Business      Retail          575.00
+                                   Wholesale      7236.00
+                     Individual    Retail        10155.04
+New Mexico           Business      Wholesale      3135.00
+                     Individual    Retail         4147.76
+New York             Business      Retail         1129.94
+                                   Wholesale     55183.41
+                     Individual    Retail        34295.98
+North Carolina       Business      Wholesale      9282.60
+                     Individual    Retail        14357.41
+North Dakota         Individual    Retail         1369.79
+Ohio                 Business      Retail          959.97
+                                   Wholesale     24852.74
+                     Individual    Retail        21875.12
+Oklahoma             Business      Retail           81.97
+                                   Wholesale     15914.78
+                     Individual    Retail        10571.52
+Oregon               Business      Wholesale      4691.00
+                     Individual    Retail         7072.11
+Pennsylvania         Business      Wholesale     28370.00
+                     Individual    Retail        18552.59
+South Carolina       Business      Retail          238.97
+                     Individual    Retail         8888.22
+South Dakota         Individual    Retail         2031.33
+Tennessee            Business      Wholesale     17174.76
+                     Individual    Retail        12770.61
+Texas                Business      Retail         5236.62
+                                   Wholesale    156667.00
+                     Individual    Retail        72785.57
+Utah                 Business      Wholesale      8279.40
+                     Individual    Retail         6689.16
+Vermont              Business      Wholesale      4810.00
+Virginia             Business      Retail         2037.86
+                                   Wholesale     61152.50
+                     Individual    Retail        23824.72
+Washington           Business      Retail         1190.96
+                                   Wholesale     26149.62
+                     Individual    Retail        16275.98
+West Virginia        Business      Retail          587.97
+                                   Wholesale     12402.00
+                     Individual    Retail         5410.47
+Wisconsin            Business      Wholesale     22595.43
+                     Individual    Retail         7356.31
+Wyoming              Individual    Retail           73.47
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 5 
+/Users/sciskafu/Documents/GitHub/ITM352_F26_repo/Assignment 2/FinalSubmission.py:64: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  dates = pd.to_datetime(data["order_date"], errors="coerce")
+
+--- Date Range Selection (Available Period: 2019-01-02 to 2021-12-01) ---
+Please specify the date range for this analysis (Format: YYYY-MM-DD, or press Enter for full range).
+Start Date [Default: 2019-01-02]: 
+End Date   [Default: 2021-12-01]: 
+Filter applied: Analyzing 5130 records from 2019-01-02 to 2021-12-01.
+
+--- Analytical Report: Total Unit Volume and Sales Revenue by Region and Product ---
+                                                         quantity  sale_price
+sales_region   produce_name                                                  
+Central East   Assorted Olive Bar Soap - 6 pk                  17      510.00
+               Assorted Olive Oil Bar Soap - 3 pk              20      290.00
+               Basil EVOO Gift Basket                          28     2100.00
+               Basil Extra Virgin Olive Oil                    23      598.00
+               Basil Extra Virgin Olive Oil 12pk              120    28080.00
+               Basil Extra Virgin Olive Oil 2pk                19      855.00
+               Basil Extra Virgin Olive Oil 6pk                30     3690.00
+               Chili EVOO Gift Basket                          19     1425.00
+               Chili Extra Virgin Olive Oil                    35      910.00
+               Chili Extra Virgin Olive Oil 12pk               84    19656.00
+               Chili Extra Virgin Olive Oil 2pk                27     1215.00
+               Chili Extra Virgin Olive Oil 6pk                26     3198.00
+               Deluxe Bath Gift Basket                         20     2300.00
+               Extra Virgin Olive Oil - Bold                   31      759.50
+               Extra Virgin Olive Oil - Bold 12pk              89    20826.00
+               Extra Virgin Olive Oil - Bold 2pk               19      332.50
+               Extra Virgin Olive Oil - Bold 6pk               15     1710.00
+               Extra Virgin Olive Oil - Delicate               25      612.50
+               Extra Virgin Olive Oil - Delicate 12pk          76    17784.00
+               Extra Virgin Olive Oil - Delicate 2pk           22      990.00
+               Extra Virgin Olive Oil - Delicate 6pk           25     2850.00
+               Extra Virgin Olive Oil - Medium                 11      269.50
+               Extra Virgin Olive Oil - Medium 12 pk           25      487.50
+               Extra Virgin Olive Oil - Medium 2pk             24      402.00
+               Extra Virgin Olive Oil - Medium 6pk             27     3078.00
+               Extra Virgin Olive Oil - Trio 12pk              79    18486.00
+               Extra Virgin Olive Oil - Trio 3pk               54     3780.00
+               Extra Virgin Olive Oil - Trio 6pk               26     2964.00
+               Garlic EVOO Gift Basket                         20     1500.00
+               Garlic Extra Virgin Olive Oil                   29      754.00
+               Garlic Extra Virgin Olive Oil 12pk             149    34866.00
+               Garlic Extra Virgin Olive Oil 2pk               47     2115.00
+               Garlic Extra Virgin Olive Oil 6pk               20     2460.00
+               Infused EVOO Gift Basket                        28     2100.00
+               Lavender and Olive Bath Salts                   40      340.00
+               Lavender and Olive Body Soap                    18      134.10
+               Lavender and Olive Candle                       35      244.65
+               Lavender and Olive Oil Bar Soap                 36      215.64
+               Lavender and Olive Oil Bar Soap 3pk             21      304.50
+               Lavender and Olive Oil Lotion                   37      369.63
+               Lemon EVOO Gift Basket                          16     1200.00
+               Lemon Extra Virgin Olive Oil                    34      884.00
+               Lemon Extra Virgin Olive Oil 12pk               82    19188.00
+               Lemon Extra Virgin Olive Oil 2pk                10      450.00
+               Lemon Extra Virgin Olive Oil 6pk                26     3198.00
+               Mandarin and Olive Bath Salts                   17      144.50
+               Mandarin and Olive Body Soap                    43      320.35
+               Mandarin and Olive Candle                       16      111.84
+               Mandarin and Olive Oil Bar Soap                 44      263.56
+               Mandarin and Olive Oil Bar Soap 3pk             25      362.50
+               Mandarin and Olive Oil Lotion                   24      239.76
+               Organic EVOO Gift Basket                        12      840.00
+               Rosemary Extra Virgin Olive Oil                 31      806.00
+               Rosemary Extra Virgin Olive Oil 12pk           123    28782.00
+               Rosemary Extra Virgin Olive Oil 2pk             14      630.00
+               Rosemary Extra Virgin Olive Oil 6pk             20     2460.00
+               Rosmary EVOO Gift Basket                        23     1725.00
+               Scented Olive Oil Bath Salts Gift Basket        23      805.00
+               Scented Olive Oil Bath Soap Gift Basket         22      990.00
+               Scented Olive Oil Candle Gift Basket            25      487.50
+               Scented Olive Oil Lotion Gift Basket            31      837.00
+               Vanilla and Olive Bath Salts                    41      348.50
+               Vanilla and Olive Oil Bar Soap                  17      101.83
+               Vanilla and Olive Oil Bar Soap 3pk              36      522.00
+               Vanilla and Olive Oil Body Soap                 10       74.50
+               Vanilla and Olive Oil Candle                    14       97.86
+               Vanilla and Olive Oil Lotion                    32      319.68
+N Central East Assorted Olive Bar Soap - 6 pk                  27      810.00
+               Assorted Olive Oil Bar Soap - 3 pk              25      362.50
+               Basil EVOO Gift Basket                          26     1950.00
+               Basil Extra Virgin Olive Oil                    41     1066.00
+               Basil Extra Virgin Olive Oil 12pk              109    25506.00
+               Basil Extra Virgin Olive Oil 2pk                39     1755.00
+               Basil Extra Virgin Olive Oil 6pk                37     4551.00
+               Chili EVOO Gift Basket                          18     1350.00
+               Chili Extra Virgin Olive Oil                    18      468.00
+               Chili Extra Virgin Olive Oil 12pk              133    31122.00
+               Chili Extra Virgin Olive Oil 2pk                18      810.00
+               Chili Extra Virgin Olive Oil 6pk                33     4059.00
+               Deluxe Bath Gift Basket                         28     3220.00
+               Extra Virgin Olive Oil - Bold                   42     1029.00
+               Extra Virgin Olive Oil - Bold 12pk             115    26910.00
+               Extra Virgin Olive Oil - Bold 2pk               23      402.50
+               Extra Virgin Olive Oil - Bold 6pk               35     3990.00
+               Extra Virgin Olive Oil - Delicate               26      637.00
+               Extra Virgin Olive Oil - Delicate 12pk         126    29484.00
+               Extra Virgin Olive Oil - Delicate 2pk           24     1080.00
+               Extra Virgin Olive Oil - Delicate 6pk           19     2166.00
+               Extra Virgin Olive Oil - Medium                 30      735.00
+               Extra Virgin Olive Oil - Medium 12 pk           29      565.50
+               Extra Virgin Olive Oil - Medium 2pk             29      485.75
+               Extra Virgin Olive Oil - Medium 6pk             19     2166.00
+               Extra Virgin Olive Oil - Trio 12pk              65    15210.00
+               Extra Virgin Olive Oil - Trio 3pk               19     1330.00
+               Extra Virgin Olive Oil - Trio 6pk               54     6156.00
+               Garlic EVOO Gift Basket                         29     2175.00
+               Garlic Extra Virgin Olive Oil                   74     1924.00
+               Garlic Extra Virgin Olive Oil 12pk              88    20592.00
+               Garlic Extra Virgin Olive Oil 2pk               31     1395.00
+               Garlic Extra Virgin Olive Oil 6pk               17     2091.00
+               Infused EVOO Gift Basket                        38     2850.00
+               Lavender and Olive Bath Salts                   27      229.50
+               Lavender and Olive Body Soap                    32      238.40
+               Lavender and Olive Candle                       46      321.54
+               Lavender and Olive Oil Bar Soap                 51      305.49
+               Lavender and Olive Oil Bar Soap 3pk             19      275.50
+               Lavender and Olive Oil Lotion                   64      639.36
+               Lemon EVOO Gift Basket                          32     2400.00
+               Lemon Extra Virgin Olive Oil                    37      962.00
+               Lemon Extra Virgin Olive Oil 12pk              123    28782.00
+               Lemon Extra Virgin Olive Oil 2pk                14      630.00
+               Lemon Extra Virgin Olive Oil 6pk                50     6150.00
+               Mandarin and Olive Bath Salts                   38      323.00
+               Mandarin and Olive Body Soap                    56      417.20
+               Mandarin and Olive Candle                       52      363.48
+               Mandarin and Olive Oil Bar Soap                 12       71.88
+               Mandarin and Olive Oil Bar Soap 3pk             25      362.50
+               Mandarin and Olive Oil Lotion                   20      199.80
+               Organic EVOO Gift Basket                        21     1470.00
+               Rosemary Extra Virgin Olive Oil                 24      624.00
+               Rosemary Extra Virgin Olive Oil 12pk            53    12402.00
+               Rosemary Extra Virgin Olive Oil 2pk             31     1395.00
+               Rosemary Extra Virgin Olive Oil 6pk             23     2829.00
+               Rosmary EVOO Gift Basket                        21     1575.00
+               Scented Olive Oil Bath Salts Gift Basket        29     1015.00
+               Scented Olive Oil Bath Soap Gift Basket         31     1395.00
+               Scented Olive Oil Candle Gift Basket            36      702.00
+               Scented Olive Oil Lotion Gift Basket            53     1431.00
+               Vanilla and Olive Bath Salts                    35      297.50
+               Vanilla and Olive Oil Bar Soap                  45      269.55
+               Vanilla and Olive Oil Bar Soap 3pk              35      507.50
+               Vanilla and Olive Oil Body Soap                 43      320.35
+               Vanilla and Olive Oil Candle                    33      230.67
+               Vanilla and Olive Oil Lotion                    36      359.64
+N Central West Assorted Olive Bar Soap - 6 pk                   4      120.00
+               Assorted Olive Oil Bar Soap - 3 pk              10      145.00
+               Basil EVOO Gift Basket                           1       75.00
+               Basil Extra Virgin Olive Oil                     1       26.00
+               Basil Extra Virgin Olive Oil 12pk                3      702.00
+               Basil Extra Virgin Olive Oil 6pk                 4      492.00
+               Chili EVOO Gift Basket                           6      450.00
+               Chili Extra Virgin Olive Oil                     3       78.00
+               Chili Extra Virgin Olive Oil 12pk                5     1170.00
+               Chili Extra Virgin Olive Oil 2pk                 8      360.00
+               Chili Extra Virgin Olive Oil 6pk                 5      615.00
+               Deluxe Bath Gift Basket                          6      690.00
+               Extra Virgin Olive Oil - Bold                    2       49.00
+               Extra Virgin Olive Oil - Bold 12pk               3      702.00
+               Extra Virgin Olive Oil - Bold 2pk                9      157.50
+               Extra Virgin Olive Oil - Bold 6pk                4      456.00
+               Extra Virgin Olive Oil - Delicate 12pk           2      468.00
+               Extra Virgin Olive Oil - Delicate 2pk            3      135.00
+               Extra Virgin Olive Oil - Delicate 6pk            6      684.00
+               Extra Virgin Olive Oil - Medium                  4       98.00
+               Extra Virgin Olive Oil - Medium 12 pk            2       39.00
+               Extra Virgin Olive Oil - Medium 2pk              4       67.00
+               Extra Virgin Olive Oil - Medium 6pk              4      456.00
+               Extra Virgin Olive Oil - Trio 3pk                1       70.00
+               Garlic EVOO Gift Basket                          8      600.00
+               Garlic Extra Virgin Olive Oil 12pk               1      234.00
+               Garlic Extra Virgin Olive Oil 6pk                1      123.00
+               Lavender and Olive Body Soap                     3       22.35
+               Lavender and Olive Candle                        1        6.99
+               Lavender and Olive Oil Bar Soap 3pk              7      101.50
+               Lemon EVOO Gift Basket                           2      150.00
+               Lemon Extra Virgin Olive Oil 2pk                 1       45.00
+               Lemon Extra Virgin Olive Oil 6pk                 7      861.00
+               Mandarin and Olive Bath Salts                   11       93.50
+               Mandarin and Olive Body Soap                     1        7.45
+               Mandarin and Olive Candle                        1        6.99
+               Mandarin and Olive Oil Bar Soap                  5       29.95
+               Rosemary Extra Virgin Olive Oil 12pk             4      936.00
+               Scented Olive Oil Candle Gift Basket             3       58.50
+               Vanilla and Olive Bath Salts                     5       42.50
+               Vanilla and Olive Oil Bar Soap                   4       23.96
+               Vanilla and Olive Oil Body Soap                  4       29.80
+               Vanilla and Olive Oil Candle                     3       20.97
+               Vanilla and Olive Oil Lotion                     4       39.96
+Northeast      Assorted Olive Bar Soap - 6 pk                  15      450.00
+               Assorted Olive Oil Bar Soap - 3 pk              47      681.50
+               Basil EVOO Gift Basket                          18     1350.00
+               Basil Extra Virgin Olive Oil                    46     1196.00
+               Basil Extra Virgin Olive Oil 12pk               95    22230.00
+               Basil Extra Virgin Olive Oil 2pk                17      765.00
+               Basil Extra Virgin Olive Oil 6pk                26     3198.00
+               Chili EVOO Gift Basket                          27     2025.00
+               Chili Extra Virgin Olive Oil                    13      338.00
+               Chili Extra Virgin Olive Oil 12pk              124    29016.00
+               Chili Extra Virgin Olive Oil 2pk                10      450.00
+               Chili Extra Virgin Olive Oil 6pk                21     2583.00
+               Deluxe Bath Gift Basket                         34     3910.00
+               Extra Virgin Olive Oil - Bold                   24      588.00
+               Extra Virgin Olive Oil - Bold 12pk             146    34164.00
+               Extra Virgin Olive Oil - Bold 2pk               24      420.00
+               Extra Virgin Olive Oil - Bold 6pk               20     2280.00
+               Extra Virgin Olive Oil - Delicate               13      318.50
+               Extra Virgin Olive Oil - Delicate 12pk          25     5850.00
+               Extra Virgin Olive Oil - Delicate 2pk           26     1170.00
+               Extra Virgin Olive Oil - Delicate 6pk           20     2280.00
+               Extra Virgin Olive Oil - Medium                 14      343.00
+               Extra Virgin Olive Oil - Medium 12 pk           25      487.50
+               Extra Virgin Olive Oil - Medium 2pk              9      150.75
+               Extra Virgin Olive Oil - Medium 6pk             27     3078.00
+               Extra Virgin Olive Oil - Trio 12pk             106    24804.00
+               Extra Virgin Olive Oil - Trio 3pk               34     2380.00
+               Extra Virgin Olive Oil - Trio 6pk               15     1710.00
+               Garlic EVOO Gift Basket                         17     1275.00
+               Garlic Extra Virgin Olive Oil                   23      598.00
+               Garlic Extra Virgin Olive Oil 12pk              37     8658.00
+               Garlic Extra Virgin Olive Oil 2pk               16      720.00
+               Garlic Extra Virgin Olive Oil 6pk               37     4551.00
+               Infused EVOO Gift Basket                        27     2025.00
+               Lavender and Olive Bath Salts                   24      204.00
+               Lavender and Olive Body Soap                     7       52.15
+               Lavender and Olive Candle                       13       90.87
+               Lavender and Olive Oil Bar Soap                 35      209.65
+               Lavender and Olive Oil Bar Soap 3pk              9      130.50
+               Lavender and Olive Oil Lotion                   18      179.82
+               Lemon EVOO Gift Basket                          28     2100.00
+               Lemon Extra Virgin Olive Oil                    21      546.00
+               Lemon Extra Virgin Olive Oil 12pk               62    14508.00
+               Lemon Extra Virgin Olive Oil 2pk                31     1395.00
+               Lemon Extra Virgin Olive Oil 6pk                19     2337.00
+               Mandarin and Olive Bath Salts                   19      161.50
+               Mandarin and Olive Body Soap                    20      149.00
+               Mandarin and Olive Candle                        8       55.92
+               Mandarin and Olive Oil Bar Soap                 27      161.73
+               Mandarin and Olive Oil Bar Soap 3pk             15      217.50
+               Mandarin and Olive Oil Lotion                   26      259.74
+               Organic EVOO Gift Basket                        19     1330.00
+               Rosemary Extra Virgin Olive Oil                 23      598.00
+               Rosemary Extra Virgin Olive Oil 12pk            51    11934.00
+               Rosemary Extra Virgin Olive Oil 2pk             34     1530.00
+               Rosemary Extra Virgin Olive Oil 6pk             25     3075.00
+               Rosmary EVOO Gift Basket                        14     1050.00
+               Scented Olive Oil Bath Salts Gift Basket         9      315.00
+               Scented Olive Oil Bath Soap Gift Basket          6      270.00
+               Scented Olive Oil Candle Gift Basket            20      390.00
+               Scented Olive Oil Lotion Gift Basket            35      945.00
+               Vanilla and Olive Bath Salts                    31      263.50
+               Vanilla and Olive Oil Bar Soap                  24      143.76
+               Vanilla and Olive Oil Bar Soap 3pk              27      391.50
+               Vanilla and Olive Oil Body Soap                 25      186.25
+               Vanilla and Olive Oil Candle                    17      118.83
+               Vanilla and Olive Oil Lotion                    16      159.84
+Northwest      Assorted Olive Oil Bar Soap - 3 pk              10      145.00
+               Basil EVOO Gift Basket                           1       75.00
+               Basil Extra Virgin Olive Oil                     7      182.00
+               Basil Extra Virgin Olive Oil 12pk               37     8658.00
+               Basil Extra Virgin Olive Oil 2pk                 1       45.00
+               Basil Extra Virgin Olive Oil 6pk                 4      492.00
+               Chili EVOO Gift Basket                          18     1350.00
+               Chili Extra Virgin Olive Oil                     5      130.00
+               Chili Extra Virgin Olive Oil 12pk               34     7956.00
+               Chili Extra Virgin Olive Oil 2pk                14      630.00
+               Chili Extra Virgin Olive Oil 6pk                14     1722.00
+               Deluxe Bath Gift Basket                          4      460.00
+               Extra Virgin Olive Oil - Bold                    6      147.00
+               Extra Virgin Olive Oil - Bold 12pk               9     2106.00
+               Extra Virgin Olive Oil - Bold 2pk               24      420.00
+               Extra Virgin Olive Oil - Bold 6pk                7      798.00
+               Extra Virgin Olive Oil - Delicate                3       73.50
+               Extra Virgin Olive Oil - Delicate 12pk          29     6786.00
+               Extra Virgin Olive Oil - Delicate 2pk           10      450.00
+               Extra Virgin Olive Oil - Delicate 6pk           14     1596.00
+               Extra Virgin Olive Oil - Medium                 21      514.50
+               Extra Virgin Olive Oil - Medium 12 pk           12      234.00
+               Extra Virgin Olive Oil - Medium 2pk              2       33.50
+               Extra Virgin Olive Oil - Medium 6pk             10     1140.00
+               Extra Virgin Olive Oil - Trio 12pk              31     7254.00
+               Extra Virgin Olive Oil - Trio 3pk                4      280.00
+               Extra Virgin Olive Oil - Trio 6pk               16     1824.00
+               Garlic EVOO Gift Basket                         10      750.00
+               Garlic Extra Virgin Olive Oil                   11      286.00
+               Garlic Extra Virgin Olive Oil 12pk              20     4680.00
+               Garlic Extra Virgin Olive Oil 2pk                2       90.00
+               Garlic Extra Virgin Olive Oil 6pk               10     1230.00
+               Infused EVOO Gift Basket                         8      600.00
+               Lavender and Olive Bath Salts                   26      221.00
+               Lavender and Olive Body Soap                    24      178.80
+               Lavender and Olive Candle                       14       97.86
+               Lavender and Olive Oil Bar Soap                  5       29.95
+               Lavender and Olive Oil Bar Soap 3pk             18      261.00
+               Lavender and Olive Oil Lotion                   14      139.86
+               Lemon EVOO Gift Basket                          10      750.00
+               Lemon Extra Virgin Olive Oil                     9      234.00
+               Lemon Extra Virgin Olive Oil 12pk               17     3978.00
+               Lemon Extra Virgin Olive Oil 2pk                 3      135.00
+               Lemon Extra Virgin Olive Oil 6pk                 5      615.00
+               Mandarin and Olive Bath Salts                    5       42.50
+               Mandarin and Olive Body Soap                    10       74.50
+               Mandarin and Olive Candle                        4       27.96
+               Mandarin and Olive Oil Bar Soap                  4       23.96
+               Mandarin and Olive Oil Bar Soap 3pk              1       14.50
+               Mandarin and Olive Oil Lotion                   12      119.88
+               Organic EVOO Gift Basket                         4      280.00
+               Rosemary Extra Virgin Olive Oil                  8      208.00
+               Rosemary Extra Virgin Olive Oil 12pk            15     3510.00
+               Rosemary Extra Virgin Olive Oil 2pk              8      360.00
+               Rosemary Extra Virgin Olive Oil 6pk              8      984.00
+               Rosmary EVOO Gift Basket                         1       75.00
+               Scented Olive Oil Bath Salts Gift Basket        25      875.00
+               Scented Olive Oil Bath Soap Gift Basket         10      450.00
+               Scented Olive Oil Candle Gift Basket            12      234.00
+               Scented Olive Oil Lotion Gift Basket             8      216.00
+               Vanilla and Olive Bath Salts                    11       93.50
+               Vanilla and Olive Oil Bar Soap                   7       41.93
+               Vanilla and Olive Oil Bar Soap 3pk              10      145.00
+               Vanilla and Olive Oil Body Soap                 16      119.20
+               Vanilla and Olive Oil Candle                     9       62.91
+               Vanilla and Olive Oil Lotion                     7       69.93
+S Central East Assorted Olive Bar Soap - 6 pk                  43     1290.00
+               Assorted Olive Oil Bar Soap - 3 pk              26      377.00
+               Basil EVOO Gift Basket                          27     2025.00
+               Basil Extra Virgin Olive Oil                    32      832.00
+               Basil Extra Virgin Olive Oil 12pk              115    26910.00
+               Basil Extra Virgin Olive Oil 2pk                43     1935.00
+               Basil Extra Virgin Olive Oil 6pk                29     3567.00
+               Chili EVOO Gift Basket                          23     1725.00
+               Chili Extra Virgin Olive Oil                    31      806.00
+               Chili Extra Virgin Olive Oil 12pk              135    31590.00
+               Chili Extra Virgin Olive Oil 2pk                46     2070.00
+               Chili Extra Virgin Olive Oil 6pk                27     3321.00
+               Deluxe Bath Gift Basket                         30     3450.00
+               Extra Virgin Olive Oil - Bold                   37      906.50
+               Extra Virgin Olive Oil - Bold 12pk             151    35334.00
+               Extra Virgin Olive Oil - Bold 2pk               27      472.50
+               Extra Virgin Olive Oil - Bold 6pk               47     5358.00
+               Extra Virgin Olive Oil - Delicate               46     1127.00
+               Extra Virgin Olive Oil - Delicate 12pk         178    41652.00
+               Extra Virgin Olive Oil - Delicate 2pk           33     1485.00
+               Extra Virgin Olive Oil - Delicate 6pk           18     2052.00
+               Extra Virgin Olive Oil - Medium                 38      931.00
+               Extra Virgin Olive Oil - Medium 12 pk           37      721.50
+               Extra Virgin Olive Oil - Medium 2pk             26      435.50
+               Extra Virgin Olive Oil - Medium 6pk             40     4560.00
+               Extra Virgin Olive Oil - Trio 12pk              91    21294.00
+               Extra Virgin Olive Oil - Trio 3pk               29     2030.00
+               Extra Virgin Olive Oil - Trio 6pk               25     2850.00
+               Garlic EVOO Gift Basket                         41     3075.00
+               Garlic Extra Virgin Olive Oil                   34      884.00
+               Garlic Extra Virgin Olive Oil 12pk             110    25740.00
+               Garlic Extra Virgin Olive Oil 2pk               26     1170.00
+               Garlic Extra Virgin Olive Oil 6pk               56     6888.00
+               Infused EVOO Gift Basket                        31     2325.00
+               Lavender and Olive Bath Salts                   23      195.50
+               Lavender and Olive Body Soap                    49      365.05
+               Lavender and Olive Candle                       43      300.57
+               Lavender and Olive Oil Bar Soap                 24      143.76
+               Lavender and Olive Oil Bar Soap 3pk             29      420.50
+               Lavender and Olive Oil Lotion                   50      499.50
+               Lemon EVOO Gift Basket                          35     2625.00
+               Lemon Extra Virgin Olive Oil                    16      416.00
+               Lemon Extra Virgin Olive Oil 12pk              129    30186.00
+               Lemon Extra Virgin Olive Oil 2pk                22      990.00
+               Lemon Extra Virgin Olive Oil 6pk                40     4920.00
+               Mandarin and Olive Bath Salts                   20      170.00
+               Mandarin and Olive Body Soap                    21      156.45
+               Mandarin and Olive Candle                       51      356.49
+               Mandarin and Olive Oil Bar Soap                 33      197.67
+               Mandarin and Olive Oil Bar Soap 3pk             42      609.00
+               Mandarin and Olive Oil Lotion                   37      369.63
+               Organic EVOO Gift Basket                        38     2660.00
+               Rosemary Extra Virgin Olive Oil                 16      416.00
+               Rosemary Extra Virgin Olive Oil 12pk           164    38376.00
+               Rosemary Extra Virgin Olive Oil 2pk             23     1035.00
+               Rosemary Extra Virgin Olive Oil 6pk             28     3444.00
+               Rosmary EVOO Gift Basket                        21     1575.00
+               Scented Olive Oil Bath Salts Gift Basket        48     1680.00
+               Scented Olive Oil Bath Soap Gift Basket         35     1575.00
+               Scented Olive Oil Candle Gift Basket            43      838.50
+               Scented Olive Oil Lotion Gift Basket            73     1971.00
+               Vanilla and Olive Bath Salts                    36      306.00
+               Vanilla and Olive Oil Bar Soap                  43      257.57
+               Vanilla and Olive Oil Bar Soap 3pk              43      623.50
+               Vanilla and Olive Oil Body Soap                 40      298.00
+               Vanilla and Olive Oil Candle                    39      272.61
+               Vanilla and Olive Oil Lotion                    25      249.75
+S Central West Assorted Olive Bar Soap - 6 pk                   7      210.00
+               Assorted Olive Oil Bar Soap - 3 pk              19      275.50
+               Basil EVOO Gift Basket                           7      525.00
+               Basil Extra Virgin Olive Oil                    15      390.00
+               Basil Extra Virgin Olive Oil 12pk               40     9360.00
+               Basil Extra Virgin Olive Oil 2pk                 6      270.00
+               Basil Extra Virgin Olive Oil 6pk                14     1722.00
+               Chili Extra Virgin Olive Oil                    12      312.00
+               Chili Extra Virgin Olive Oil 12pk               36     8424.00
+               Chili Extra Virgin Olive Oil 2pk                 5      225.00
+               Chili Extra Virgin Olive Oil 6pk                10     1230.00
+               Deluxe Bath Gift Basket                         12     1380.00
+               Extra Virgin Olive Oil - Bold                   11      269.50
+               Extra Virgin Olive Oil - Bold 12pk              50    11700.00
+               Extra Virgin Olive Oil - Bold 2pk                8      140.00
+               Extra Virgin Olive Oil - Bold 6pk               28     3192.00
+               Extra Virgin Olive Oil - Delicate                8      196.00
+               Extra Virgin Olive Oil - Delicate 12pk          17     3978.00
+               Extra Virgin Olive Oil - Delicate 2pk            5      225.00
+               Extra Virgin Olive Oil - Delicate 6pk            1      114.00
+               Extra Virgin Olive Oil - Medium                 10      245.00
+               Extra Virgin Olive Oil - Medium 12 pk           13      253.50
+               Extra Virgin Olive Oil - Medium 2pk             13      217.75
+               Extra Virgin Olive Oil - Medium 6pk             14     1596.00
+               Extra Virgin Olive Oil - Trio 12pk              52    12168.00
+               Extra Virgin Olive Oil - Trio 3pk               13      910.00
+               Extra Virgin Olive Oil - Trio 6pk               18     2052.00
+               Garlic EVOO Gift Basket                          7      525.00
+               Garlic Extra Virgin Olive Oil                   12      312.00
+               Garlic Extra Virgin Olive Oil 12pk              40     9360.00
+               Garlic Extra Virgin Olive Oil 2pk               26     1170.00
+               Garlic Extra Virgin Olive Oil 6pk               16     1968.00
+               Infused EVOO Gift Basket                        13      975.00
+               Lavender and Olive Bath Salts                   13      110.50
+               Lavender and Olive Body Soap                    24      178.80
+               Lavender and Olive Candle                       21      146.79
+               Lavender and Olive Oil Bar Soap 3pk             15      217.50
+               Lavender and Olive Oil Lotion                    8       79.92
+               Lemon EVOO Gift Basket                          17     1275.00
+               Lemon Extra Virgin Olive Oil                    15      390.00
+               Lemon Extra Virgin Olive Oil 12pk               33     7722.00
+               Lemon Extra Virgin Olive Oil 2pk                 5      225.00
+               Lemon Extra Virgin Olive Oil 6pk                 5      615.00
+               Mandarin and Olive Bath Salts                   14      119.00
+               Mandarin and Olive Body Soap                    13       96.85
+               Mandarin and Olive Candle                        4       27.96
+               Mandarin and Olive Oil Bar Soap                 10       59.90
+               Mandarin and Olive Oil Lotion                   17      169.83
+               Organic EVOO Gift Basket                        24     1680.00
+               Rosemary Extra Virgin Olive Oil                  6      156.00
+               Rosemary Extra Virgin Olive Oil 12pk            47    10998.00
+               Rosemary Extra Virgin Olive Oil 2pk              1       45.00
+               Rosemary Extra Virgin Olive Oil 6pk             18     2214.00
+               Rosmary EVOO Gift Basket                        22     1650.00
+               Scented Olive Oil Bath Salts Gift Basket         8      280.00
+               Scented Olive Oil Bath Soap Gift Basket         14      630.00
+               Scented Olive Oil Candle Gift Basket             6      117.00
+               Scented Olive Oil Lotion Gift Basket             3       81.00
+               Vanilla and Olive Bath Salts                    10       85.00
+               Vanilla and Olive Oil Bar Soap                  10       59.90
+               Vanilla and Olive Oil Bar Soap 3pk              13      188.50
+               Vanilla and Olive Oil Body Soap                  3       22.35
+               Vanilla and Olive Oil Candle                     6       41.94
+               Vanilla and Olive Oil Lotion                    16      159.84
+Southeast      Assorted Olive Bar Soap - 6 pk                  39     1170.00
+               Assorted Olive Oil Bar Soap - 3 pk               8      116.00
+               Basil EVOO Gift Basket                          18     1350.00
+               Basil Extra Virgin Olive Oil                    19      494.00
+               Basil Extra Virgin Olive Oil 12pk               67    15678.00
+               Basil Extra Virgin Olive Oil 2pk                40     1800.00
+               Basil Extra Virgin Olive Oil 6pk                25     3075.00
+               Chili EVOO Gift Basket                          14     1050.00
+               Chili Extra Virgin Olive Oil                    27      702.00
+               Chili Extra Virgin Olive Oil 12pk               54    12636.00
+               Chili Extra Virgin Olive Oil 2pk                57     2565.00
+               Chili Extra Virgin Olive Oil 6pk                28     3444.00
+               Deluxe Bath Gift Basket                         26     2990.00
+               Extra Virgin Olive Oil - Bold                   40      980.00
+               Extra Virgin Olive Oil - Bold 12pk              91    21294.00
+               Extra Virgin Olive Oil - Bold 2pk               15      262.50
+               Extra Virgin Olive Oil - Bold 6pk               25     2850.00
+               Extra Virgin Olive Oil - Delicate               40      980.00
+               Extra Virgin Olive Oil - Delicate 12pk         103    24102.00
+               Extra Virgin Olive Oil - Delicate 2pk           21      945.00
+               Extra Virgin Olive Oil - Delicate 6pk           21     2394.00
+               Extra Virgin Olive Oil - Medium                 35      857.50
+               Extra Virgin Olive Oil - Medium 12 pk           31      604.50
+               Extra Virgin Olive Oil - Medium 2pk             29      485.75
+               Extra Virgin Olive Oil - Medium 6pk             32     3648.00
+               Extra Virgin Olive Oil - Trio 12pk             110    25740.00
+               Extra Virgin Olive Oil - Trio 3pk               30     2100.00
+               Extra Virgin Olive Oil - Trio 6pk               11     1254.00
+               Garlic EVOO Gift Basket                         33     2475.00
+               Garlic Extra Virgin Olive Oil                   32      832.00
+               Garlic Extra Virgin Olive Oil 12pk              79    18486.00
+               Garlic Extra Virgin Olive Oil 2pk               20      900.00
+               Garlic Extra Virgin Olive Oil 6pk               38     4674.00
+               Infused EVOO Gift Basket                        26     1950.00
+               Lavender and Olive Bath Salts                   38      323.00
+               Lavender and Olive Body Soap                    34      253.30
+               Lavender and Olive Candle                       22      153.78
+               Lavender and Olive Oil Bar Soap                 46      275.54
+               Lavender and Olive Oil Bar Soap 3pk             14      203.00
+               Lavender and Olive Oil Lotion                    5       49.95
+               Lemon EVOO Gift Basket                           8      600.00
+               Lemon Extra Virgin Olive Oil                    38      988.00
+               Lemon Extra Virgin Olive Oil 12pk               73    17082.00
+               Lemon Extra Virgin Olive Oil 2pk                23     1035.00
+               Lemon Extra Virgin Olive Oil 6pk                27     3321.00
+               Mandarin and Olive Bath Salts                   27      229.50
+               Mandarin and Olive Body Soap                    28      208.60
+               Mandarin and Olive Candle                       17      118.83
+               Mandarin and Olive Oil Bar Soap                 12       71.88
+               Mandarin and Olive Oil Bar Soap 3pk             19      275.50
+               Mandarin and Olive Oil Lotion                   33      329.67
+               Organic EVOO Gift Basket                        44     3080.00
+               Rosemary Extra Virgin Olive Oil                 38      988.00
+               Rosemary Extra Virgin Olive Oil 12pk            78    18252.00
+               Rosemary Extra Virgin Olive Oil 2pk             27     1215.00
+               Rosemary Extra Virgin Olive Oil 6pk             26     3198.00
+               Rosmary EVOO Gift Basket                        18     1350.00
+               Scented Olive Oil Bath Salts Gift Basket        32     1120.00
+               Scented Olive Oil Bath Soap Gift Basket         44     1980.00
+               Scented Olive Oil Candle Gift Basket            13      253.50
+               Scented Olive Oil Lotion Gift Basket            26      702.00
+               Vanilla and Olive Bath Salts                    41      348.50
+               Vanilla and Olive Oil Bar Soap                  15       89.85
+               Vanilla and Olive Oil Bar Soap 3pk              17      246.50
+               Vanilla and Olive Oil Body Soap                 29      216.05
+               Vanilla and Olive Oil Candle                    19      132.81
+               Vanilla and Olive Oil Lotion                    29      289.71
+Southwest      Assorted Olive Bar Soap - 6 pk                  24      720.00
+               Assorted Olive Oil Bar Soap - 3 pk              28      406.00
+               Basil EVOO Gift Basket                          25     1875.00
+               Basil Extra Virgin Olive Oil                    37      962.00
+               Basil Extra Virgin Olive Oil 12pk               89    20826.00
+               Basil Extra Virgin Olive Oil 2pk                12      540.00
+               Basil Extra Virgin Olive Oil 6pk                20     2460.00
+               Chili EVOO Gift Basket                          34     2550.00
+               Chili Extra Virgin Olive Oil                    37      962.00
+               Chili Extra Virgin Olive Oil 12pk               81    18954.00
+               Chili Extra Virgin Olive Oil 2pk                28     1260.00
+               Chili Extra Virgin Olive Oil 6pk                26     3198.00
+               Deluxe Bath Gift Basket                         12     1380.00
+               Extra Virgin Olive Oil - Bold                   20      490.00
+               Extra Virgin Olive Oil - Bold 12pk              57    13338.00
+               Extra Virgin Olive Oil - Bold 2pk               28      490.00
+               Extra Virgin Olive Oil - Bold 6pk               24     2736.00
+               Extra Virgin Olive Oil - Delicate               33      808.50
+               Extra Virgin Olive Oil - Delicate 12pk          86    20124.00
+               Extra Virgin Olive Oil - Delicate 2pk           23     1035.00
+               Extra Virgin Olive Oil - Delicate 6pk           21     2394.00
+               Extra Virgin Olive Oil - Medium                 30      735.00
+               Extra Virgin Olive Oil - Medium 12 pk           42      819.00
+               Extra Virgin Olive Oil - Medium 2pk             23      385.25
+               Extra Virgin Olive Oil - Medium 6pk              7      798.00
+               Extra Virgin Olive Oil - Trio 12pk              86    20124.00
+               Extra Virgin Olive Oil - Trio 3pk               18     1260.00
+               Extra Virgin Olive Oil - Trio 6pk               12     1368.00
+               Garlic EVOO Gift Basket                         14     1050.00
+               Garlic Extra Virgin Olive Oil                   17      442.00
+               Garlic Extra Virgin Olive Oil 12pk              93    21762.00
+               Garlic Extra Virgin Olive Oil 2pk               23     1035.00
+               Garlic Extra Virgin Olive Oil 6pk               32     3936.00
+               Infused EVOO Gift Basket                        24     1800.00
+               Lavender and Olive Bath Salts                   40      340.00
+               Lavender and Olive Body Soap                    32      238.40
+               Lavender and Olive Candle                       22      153.78
+               Lavender and Olive Oil Bar Soap                 25      149.75
+               Lavender and Olive Oil Bar Soap 3pk             38      551.00
+               Lavender and Olive Oil Lotion                   26      259.74
+               Lemon EVOO Gift Basket                          32     2400.00
+               Lemon Extra Virgin Olive Oil                    35      910.00
+               Lemon Extra Virgin Olive Oil 12pk              102    23868.00
+               Lemon Extra Virgin Olive Oil 2pk                21      945.00
+               Lemon Extra Virgin Olive Oil 6pk                31     3813.00
+               Mandarin and Olive Bath Salts                   30      255.00
+               Mandarin and Olive Body Soap                    28      208.60
+               Mandarin and Olive Candle                       30      209.70
+               Mandarin and Olive Oil Bar Soap                 25      149.75
+               Mandarin and Olive Oil Bar Soap 3pk             27      391.50
+               Mandarin and Olive Oil Lotion                   42      419.58
+               Organic EVOO Gift Basket                        23     1610.00
+               Rosemary Extra Virgin Olive Oil                 35      910.00
+               Rosemary Extra Virgin Olive Oil 12pk            99    23166.00
+               Rosemary Extra Virgin Olive Oil 2pk             26     1170.00
+               Rosemary Extra Virgin Olive Oil 6pk             29     3567.00
+               Rosmary EVOO Gift Basket                        31     2325.00
+               Scented Olive Oil Bath Salts Gift Basket        27      945.00
+               Scented Olive Oil Bath Soap Gift Basket         42     1890.00
+               Scented Olive Oil Candle Gift Basket            32      624.00
+               Scented Olive Oil Lotion Gift Basket            29      783.00
+               Vanilla and Olive Bath Salts                    29      246.50
+               Vanilla and Olive Oil Bar Soap                  22      131.78
+               Vanilla and Olive Oil Bar Soap 3pk              20      290.00
+               Vanilla and Olive Oil Body Soap                 28      208.60
+               Vanilla and Olive Oil Candle                    47      328.53
+               Vanilla and Olive Oil Lotion                    24      239.76
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 1
+
+Enter rows to display:
+- Enter a number 1 to 5130
+- To see all rows, enter 'all'
+- To skip preview, press Enter
+Your choice:  
+Preview bypassed. Returning to main menu.
+
+--- Sales Data Dashboard ---
+1. Show the first n rows of sales data
+2. Total sales by region and order_type
+3. Average sales by region with average sales by state and sale type
+4. Sales by customer type and order type by state
+5. Total sales quantity and price by region and product
+6. Total sales quantity and price customer type
+7. Max and min sales price of sales by category
+8. Number of unique employees by region
+9. Create a custom pivot table
+10. Employee performance & regional efficiency KPIs (Custom Analytic)
+11. Exit
+
+Please select an analytical operation (1-11): 11
+Terminating session. Thank you for using the Sales Analytics System.
+sciskafu@Hezras-MacBook-Air-3 Assignment 2 % 
