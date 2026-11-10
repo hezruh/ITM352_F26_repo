@@ -175,6 +175,22 @@ def average_sales_by_region(data):
     with pd.option_context("display.width", 200, "display.max_columns", None):
         print(pivot_table.round(2))
 
+"""
+I had used Gemini Argon for assistance with explaining line by line how to implement the predefined analytical tasks, using the prompt
+'can you please explain the algorithms for the analytical tasks below using the corresponding function names and show me (line by line with
+pseudocode) how it would work? for the print statements, can you use business formal language that would be appropriate for
+a professional program?' along with the full copy pasted menu_options list as follows:
+    ("Show the first n rows of sales data", display_initial_rows),
+    ("Total sales by region and order type", total_sales_by_region_order_type),
+    ("Average sales by region with average sales by state and sale type", average_sales_by_region),
+    ("Sales by customer type and order type by state", sales_by_customer_type),
+    ("Total sales quantity and price by region and product", total_sales_quantity_price_by_region_product),
+    ("Total sales quantity and price customer type", total_sales_quantity_price_customer_type),
+    ("Max and min sales price of sales by category", max_min_sales_price_by_category),
+    ("Number of unique employees by region", unique_employees_by_region),
+    ("Create a custom pivot table", generate_custom_pivot_table),
+    ("Exit the program", exit_program) 
+"""
 
 def sales_by_customer_type(data):
     required = ["customer_state", "customer_type", "order_type", "quantity", "unit_price"]
