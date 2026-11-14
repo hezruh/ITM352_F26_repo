@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Question {{ question_number }} of {{ total_questions }}</h1>
+    <h2>{{ question }}</h2>
+    <form method="POST">
+        {% for option in options %}
+            <input type="radio" name="answer" value="{{ option }}" required> {{ option }}<br>
+        {% endfor %}
+        {% if fifty_fifty_available and options|length == 4 %}
+            <button type="submit" name="action" value="fifty_fifty" formnovalidate>Use 50/50</button>
+        {% endif %}
+        <button type="submit">Submit Answer</button>
+    </form>
+</body>
+</html>
