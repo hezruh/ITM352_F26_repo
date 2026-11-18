@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
 </head>
 <body>
-    <h1>Quiz Result</h1>
-    <p>You are most likely a <strong>{{ generation }}</strong>.</p>
-    <ul>
-        {% for generation_name, score in scores %}
-            <li>{{ generation_name }}: {{ score }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('start') }}">Take Quiz Again</a>
+    <main class="result-card">
+        <h1>Quiz Result</h1>
+        <p class="result-summary">
+            You are most likely a <strong>{{ generation }}</strong>.
+        </p>
+        <ul class="score-list">
+            {% for generation_name, score in scores %}
+                <li>
+                    You answered {{ score }} question{% if score != 1 %}s{% endif %}
+                    the same way a {{ generation_name }} would.
+                    <div class="score-bar"
+                         role="img"
+                         aria-label="{{ score }} out of {{ total_questions }} answers matching {{ generation_name }}">
+                        <div class="score-fill"
+                             style="width: {{ ((score / total_questions) * 100)|round(0) }}%;">
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="start-button" href="{{ url_for('start') }}">Retake Quiz</a>
+    </main>
 </body>
 </html>

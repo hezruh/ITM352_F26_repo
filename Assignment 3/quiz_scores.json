@@ -1,0 +1,24 @@
+[
+  {
+    "completed_at": "2026-11-18T07:32:41.881147+00:00",
+    "generation": "Zoomer",
+    "scores": {
+      "Millennial": 1,
+      "Zoomer": 3,
+      "Gen Alpha": 0,
+      "Baby Boomer": 1
+    },
+    "total_questions": 5
+  },
+  {
+    "completed_at": "2026-11-18T07:36:08.062655+00:00",
+    "generation": "Zoomer",
+    "scores": {
+      "Millennial": 1,
+      "Zoomer": 2,
+      "Gen Alpha": 1,
+      "Baby Boomer": 1
+    },
+    "total_questions": 5
+  }
+]

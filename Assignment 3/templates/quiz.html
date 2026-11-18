@@ -4,18 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
 </head>
 <body>
-    <h1>Question {{ question_number }} of {{ total_questions }}</h1>
-    <h2>{{ question }}</h2>
-    <form method="POST">
-        {% for option in options %}
-            <input type="radio" name="answer" value="{{ option }}" required> {{ option }}<br>
-        {% endfor %}
-        {% if fifty_fifty_available and options|length == 4 %}
-            <button type="submit" name="action" value="fifty_fifty" formnovalidate>Use 50/50</button>
+    <main class="quiz-card">
+        {% if feedback %}
+            <h1>Answer Feedback</h1>
+            <p class="feedback-question">
+                Question {{ question_number }} of {{ total_questions }}:
+                <strong>{{ question }}</strong>
+            </p>
+            <div class="feedback-box">
+                <p>You selected: <strong>{{ feedback.selected_answer }}</strong></p>
+                <p>
+                    That answer matches the <strong>{{ feedback.generation }}</strong>
+                    generation.
+                </p>
+                <p>{{ feedback.comment }}</p>
+            </div>
+            <form method="POST">
+                <button class="action-box submit-box" type="submit" name="action" value="continue">
+                    {% if feedback.is_final %}See Results{% else %}Next Question{% endif %}
+                </button>
+            </form>
+        {% else %}
+        <h1>Question {{ question_number }} of {{ total_questions }}</h1>
+        <h2>{{ question }}</h2>
+        <form id="quiz-form" method="POST">
+            {% if fifty_fifty_selecting %}
+                <div class="fifty-fifty-panel">
+                    <p>Select the two generations whose answer choices should be removed.</p>
+                    {% if fifty_fifty_error %}
+                        <p class="validation-message">{{ fifty_fifty_error }}</p>
+                    {% endif %}
+                    <div class="generation-options">
+                        {% for generation in generations %}
+                            <label class="generation-option">
+                                <input type="checkbox" name="removed_generations" value="{{ loop.index0 }}">
+                                <span>{{ generation }}</span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <button class="action-box secondary-action"
+                            id="confirm-fifty-fifty"
+                            type="submit"
+                            name="action"
+                            value="remove_generations"
+                            formnovalidate>
+                        Remove Selected Options
+                    </button>
+                </div>
+            {% endif %}
+            <div class="answer-options">
+                {% for option in options %}
+                    <label class="answer-option">
+                        <input type="radio" name="answer" value="{{ option }}" required>
+                        <span>{{ option }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+            <div class="quiz-actions">
+        {% if fifty_fifty_available and options|length == 4 and not fifty_fifty_selecting %}
+                <button class="action-box secondary-action" type="submit" name="action" value="fifty_fifty" formnovalidate>
+                    Use 50/50
+                </button>
         {% endif %}
-        <button type="submit">Submit Answer</button>
-    </form>
+        {% if not fifty_fifty_selecting %}
+                <button class="action-box submit-box" id="submit-answer" type="submit">
+                    Submit Answer
+                </button>
+        {% endif %}
+            </div>
+        </form>
+        {% endif %}
+    </main>
+    <script src="{{ url_for('static', filename='quiz.js') }}"></script>
 </body>
 </html>
