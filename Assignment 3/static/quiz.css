@@ -12,9 +12,13 @@ body {
 
 .start-button {
     background: #2563eb;
+    border: 0;
     border-radius: 0.5rem;
     color: #ffffff;
+    cursor: pointer;
     display: inline-block;
+    font-size: 1rem;
+    margin-top: 1rem;
     padding: 0.8rem 1.2rem;
     text-decoration: none;
 }
@@ -138,6 +142,47 @@ body {
     padding: 1rem;
 }
 
+.timer-box {
+    background: #eff6ff;
+    border: 0.125rem solid #2563eb;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    text-align: center;
+}
+
+.timer-box.timer-warning {
+    background: #fee2e2;
+    border-color: #dc2626;
+    color: #991b1b;
+}
+
+.progress-section {
+    margin-bottom: 1.25rem;
+}
+
+.progress-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+.progress-track {
+    background: #dbeafe;
+    border-radius: 999px;
+    height: 1rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-fill {
+    background: #2563eb;
+    border-radius: inherit;
+    height: 100%;
+    transition: width 0.4s ease-in-out;
+}
+
 .generation-options {
     display: grid;
     gap: 0.5rem;
@@ -165,4 +210,111 @@ body {
     border-radius: 0.25rem;
     margin: 1.5rem 0;
     padding: 1rem;
+    animation: feedback-pop 0.45s ease-out;
+}
+
+.feedback-red {
+    background: #fee2e2;
+    border-left-color: #dc2626;
+}
+
+.feedback-blue {
+    background: #dbeafe;
+    border-left-color: #2563eb;
+}
+
+.feedback-yellow {
+    background: #fef3c7;
+    border-left-color: #ca8a04;
+}
+
+.feedback-green {
+    background: #dcfce7;
+    border-left-color: #16a34a;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.review-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.review-item {
+    border-left: 0.25rem solid #2563eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.review-item h2 {
+    font-size: 1.15rem;
+    margin-top: 0;
+}
+
+.result-red {
+    background: #fee2e2;
+    border-left-color: #dc2626;
+}
+
+.result-blue {
+    background: #dbeafe;
+    border-left-color: #2563eb;
+}
+
+.result-yellow {
+    background: #fef3c7;
+    border-left-color: #ca8a04;
+}
+
+.result-green {
+    background: #dcfce7;
+    border-left-color: #16a34a;
+}
+
+.result-bar-red {
+    background: #fecaca;
+}
+
+.result-bar-blue {
+    background: #bfdbfe;
+}
+
+.result-bar-yellow {
+    background: #fde68a;
+}
+
+.result-bar-green {
+    background: #bbf7d0;
+}
+
+.score-fill-red {
+    background: #dc2626;
+}
+
+.score-fill-blue {
+    background: #2563eb;
+}
+
+.score-fill-yellow {
+    background: #ca8a04;
+}
+
+.score-fill-green {
+    background: #16a34a;
+}
+
+@keyframes feedback-pop {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

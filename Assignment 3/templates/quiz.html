@@ -8,13 +8,28 @@
 </head>
 <body>
     <main class="quiz-card">
+        <div class="progress-section"
+             role="progressbar"
+             aria-label="Quiz completion"
+             aria-valuemin="0"
+             aria-valuemax="{{ total_questions }}"
+             aria-valuenow="{{ completed_questions }}">
+            <div class="progress-label">
+                Quiz Progress: {{ completed_questions }} of {{ total_questions }}
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill"
+                     style="width: {{ progress_percent }}%;">
+                </div>
+            </div>
+        </div>
         {% if feedback %}
             <h1>Answer Feedback</h1>
             <p class="feedback-question">
                 Question {{ question_number }} of {{ total_questions }}:
                 <strong>{{ question }}</strong>
             </p>
-            <div class="feedback-box">
+            <div class="feedback-box feedback-{{ feedback.color }}">
                 <p>You selected: <strong>{{ feedback.selected_answer }}</strong></p>
                 <p>
                     That answer matches the <strong>{{ feedback.generation }}</strong>
@@ -30,10 +45,20 @@
         {% else %}
         <h1>Question {{ question_number }} of {{ total_questions }}</h1>
         <h2>{{ question }}</h2>
+        <div class="timer-box"
+             id="quiz-timer"
+             role="timer"
+             aria-live="polite"
+             data-seconds-left="{{ seconds_left }}">
+            Time left: <strong id="timer-seconds">{{ seconds_left }}</strong>s
+        </div>
         <form id="quiz-form" method="POST">
             {% if fifty_fifty_selecting %}
                 <div class="fifty-fifty-panel">
-                    <p>Select the two generations whose answer choices should be removed.</p>
+                    <p>
+                        Select two generations you do not want to pick for this question.
+                        Their answer choices will be removed.
+                    </p>
                     {% if fifty_fifty_error %}
                         <p class="validation-message">{{ fifty_fifty_error }}</p>
                     {% endif %}
@@ -66,7 +91,7 @@
             <div class="quiz-actions">
         {% if fifty_fifty_available and options|length == 4 and not fifty_fifty_selecting %}
                 <button class="action-box secondary-action" type="submit" name="action" value="fifty_fifty" formnovalidate>
-                    Use 50/50
+                    Hint
                 </button>
         {% endif %}
         {% if not fifty_fifty_selecting %}

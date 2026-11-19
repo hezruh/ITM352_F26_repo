@@ -14,20 +14,23 @@
         </p>
         <ul class="score-list">
             {% for generation_name, score in scores %}
-                <li>
+                <li class="result-{{ generation_colors[generation_name] }}">
                     You answered {{ score }} question{% if score != 1 %}s{% endif %}
                     the same way a {{ generation_name }} would.
-                    <div class="score-bar"
+                    <div class="score-bar result-bar-{{ generation_colors[generation_name] }}"
                          role="img"
                          aria-label="{{ score }} out of {{ total_questions }} answers matching {{ generation_name }}">
-                        <div class="score-fill"
+                        <div class="score-fill score-fill-{{ generation_colors[generation_name] }}"
                              style="width: {{ ((score / total_questions) * 100)|round(0) }}%;">
                         </div>
                     </div>
                 </li>
             {% endfor %}
         </ul>
-        <a class="start-button" href="{{ url_for('start') }}">Retake Quiz</a>
+        <div class="result-actions">
+            <a class="start-button" href="{{ url_for('review_answers') }}">Review Answers</a>
+            <a class="start-button" href="{{ url_for('start') }}">Retake Quiz</a>
+        </div>
     </main>
 </body>
 </html>

@@ -1,12 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("#quiz-form");
     const submitButton = document.querySelector("#submit-answer");
+    const timer = document.querySelector("#quiz-timer");
+    const timerSeconds = document.querySelector("#timer-seconds");
     const confirmFiftyFiftyButton = document.querySelector(
         "#confirm-fifty-fifty"
     );
 
     if (!form) {
         return;
+    }
+
+    if (timer && timerSeconds) {
+        let secondsLeft = Number(timer.dataset.secondsLeft);
+
+        const countdown = window.setInterval(() => {
+            secondsLeft -= 1;
+            timerSeconds.textContent = Math.max(0, secondsLeft);
+
+            if (secondsLeft <= 5) {
+                timer.classList.add("timer-warning");
+            }
+
+            if (secondsLeft <= 0) {
+                window.clearInterval(countdown);
+                const timeoutInput = document.createElement("input");
+                timeoutInput.type = "hidden";
+                timeoutInput.name = "action";
+                timeoutInput.value = "timeout";
+                form.appendChild(timeoutInput);
+                form.submit();
+            }
+        }, 1000);
     }
 
     if (submitButton) {

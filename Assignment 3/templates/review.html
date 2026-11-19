@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Answers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+</head>
+<body>
+    <main class="result-card">
+        <h1>Review Your Answers</h1>
+
+        {% if answer_history %}
+            <div class="review-list">
+                {% for answer in answer_history %}
+                    <section class="review-item feedback-{{ answer.color }}">
+                        <h2>Question {{ answer.question_number }}</h2>
+                        <p><strong>{{ answer.question }}</strong></p>
+                        <p>Your answer: <strong>{{ answer.selected_answer }}</strong></p>
+                        <p>This matches the <strong>{{ answer.generation }}</strong> generation.</p>
+                        <p>{{ answer.comment }}</p>
+                    </section>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No answers are available to review.</p>
+        {% endif %}
+
+        <a class="start-button" href="{{ url_for('result') }}">Back to Results</a>
+    </main>
+</body>
+</html>

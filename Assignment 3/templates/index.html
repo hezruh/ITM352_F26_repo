@@ -7,8 +7,45 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Generation Quiz</h1>
-    <p>Answer five questions to find out which generation your choices resemble.</p>
-    <a class="start-button" href="{{ url_for('start') }}">Start Quiz</a>
+    <main class="quiz-card">
+        {% if user_name %}
+            <h1>Welcome back, {{ user_name }}!</h1>
+            <p>Answer five questions to find out which generation your choices resemble.</p>
+
+            {% if score_history %}
+                <h2>Your Score History</h2>
+                <ul class="score-list">
+                    {% for record in score_history %}
+                        <li>
+                            <strong>{{ record.generation }}</strong>
+                            - {{ record.total_questions }} questions
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You do not have a completed quiz yet.</p>
+            {% endif %}
+        {% else %}
+            <h1>Welcome to the Generation Quiz</h1>
+            <p>Enter your name before starting.</p>
+            <form method="POST">
+                <label for="name">Name:</label>
+                <input id="name"
+                       name="name"
+                       type="text"
+                       maxlength="50"
+                       autocomplete="name"
+                       required>
+                {% if name_error %}
+                    <p class="validation-message">{{ name_error }}</p>
+                {% endif %}
+                <button class="start-button" type="submit">Continue</button>
+            </form>
+        {% endif %}
+
+        {% if user_name %}
+            <a class="start-button" href="{{ url_for('start') }}">Start Quiz</a>
+        {% endif %}
+    </main>
 </body>
 </html>
