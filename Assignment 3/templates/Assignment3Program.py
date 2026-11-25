@@ -476,7 +476,7 @@ def start():
 
 def main():
     # Notice: Start Flask's built-in development server when this file is run directly.
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5050, debug=True)
 
 if __name__ == '__main__':
     main()
